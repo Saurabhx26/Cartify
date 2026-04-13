@@ -27,3 +27,6 @@ Built using Java and Spring Boot, Cartify ensures a scalable and robust backend 
 - **Tools:** Git, GitHub, Maven  
 
 ---
+## 👨‍💻 Author
+**Saurabh Wankhade**  
+Full Stack Java Developer | Spring Boot 
