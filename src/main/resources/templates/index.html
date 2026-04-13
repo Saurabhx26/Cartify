@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+	
+		<!-- Modern Slider Start -->
+		<div id="heroCarousel" class="carousel slide carousel-fade"
+			data-bs-ride="carousel">
+
+			<div class="carousel-inner" style="margin-top: 55px;">
+			
+				<div class="carousel-item active">
+					<img src="img/banner.jpg" class="d-block w-100 hero-img">
+
+					<div class="carousel-caption hero-overlay">
+						<h1 style="color: gold;">Cartify</h1>
+    					<p>Premium Shopping Experience ✨</p>
+					</div>
+				</div>
+				
+				<div class="carousel-item">
+					<img src="img/ecom1.png" class="d-block w-100 hero-img">
+
+					<div class="carousel-caption hero-overlay">
+						<h1>Big Sale is Live 🔥</h1>
+						<p>Up to 50% OFF on all products</p>
+						<a href="/products" class="btn btn-warning btn-lg">Shop Now</a>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<img src="img/ecom3.jpg" class="d-block w-100 hero-img">
+
+					<div class="carousel-caption hero-overlay">
+						<h1>Latest Collections</h1>
+						<p>Explore trending fashion & gadgets</p>
+						<a href="/products" class="btn btn-success btn-lg">Explore</a>
+					</div>
+				</div>
+
+				<div class="carousel-item">
+					<img src="img/ecom2.jpg" class="d-block w-100 hero-img">
+
+					<div class="carousel-caption hero-overlay">
+						<h1>Fast Delivery 🚚</h1>
+						<p>Get your orders delivered in 2-3 days</p>
+						<a href="/products" class="btn btn-primary btn-lg">Order Now</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+ 		
+		<!-- Modern Slider End -->
+		<div class="container">
+		<!--< Start Category Module -->
+		<div class="container py-5">
+			<h3 class="text-center mb-4 fw-bold">Shop by Category</h3>
+
+			<div class="row g-4 justify-content-center">
+				<div class="col-md-2 col-6 text-center" th:each="c:${category}">
+					<div class="category-card">
+						<img th:src="@{'img/category_img/'+${c.imageName}}">
+						<h6>[[${c.name}]]</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Category Module -->
+
+
+		<!-- Start Latest Product Module -->
+
+		<div class="container py-5">
+			<h3 class="text-center mb-4 fw-bold">Latest Products</h3>
+
+			<div class="row g-4">
+				<div class="col-md-3 col-6" th:each="p:${products}">
+					<div class="product-card">
+
+						<img th:src="@{'img/product_img/'+${p.image}}" class="product-img">
+
+						<div class="p-3 text-center">
+							<h6 class="fw-bold">[[${p.title}]]</h6>
+
+							<a th:href="@{'/product/'+${p.id}}"
+								class="btn btn-dark btn-sm mt-2">View Product</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- End Latest Product Module -->
+		
+	</div>
+	</section>
+</body>
+</html>

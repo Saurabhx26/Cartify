@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container-fluid login-bg">
+    <div class="row justify-content-center align-items-center vh-100">
+
+        <!-- Left Image -->
+        <div class="col-md-6 d-none d-md-block text-center">
+            <img src="img/ecom.png" class="img-fluid login-img">
+        </div>
+
+        <!-- Login Card -->
+        <div class="col-md-4">
+            <div class="login-card">
+
+                <h3 class="text-center mb-4">Welcome Back 👋</h3>
+
+                <!-- Error -->
+                <div th:if="${param.error}" class="alert alert-danger text-center">
+                    <th:block th:if="${session.SPRING_SECURITY_LAST_EXCEPTION!=null}">
+                        [[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]
+                    </th:block>
+                </div>
+
+                <!-- Logout -->
+                <div th:if="${param.logout}" class="alert alert-success text-center">
+                    Logout Successful
+                </div>
+
+                <form action="/login" method="post">
+
+                    <div class="form-group mb-3">
+                        <input type="email" name="username" required>
+                        <label>Email Address</label>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <input type="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+
+                    <button type="submit" class="btn-login w-100">Login</button>
+
+                </form>
+
+                <div class="text-center mt-3">
+                    <a href="/forgot-password">Forgot Password?</a><br>
+                    <small>Don't have an account?
+                        <a href="/register">Create one</a>
+                    </small>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+	</section>
+</body>
+</html>

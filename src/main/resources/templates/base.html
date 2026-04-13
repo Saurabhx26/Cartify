@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<!--  Google Font HERE -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+	rel="stylesheet">
+
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+	integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<!-- Start Navbar  -->
+
+	<nav
+		class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+		<div class="container">
+		<a class="d-flex align-items-center" href="/">
+    		<img src="/img/logo.png" alt="Cartify Logo" class="logo-img">
+		</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+				<!-- Left -->
+				<ul class="navbar-nav me-auto">
+
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="/products">Products</a>
+					</li>
+
+					<!-- Category -->
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						data-bs-toggle="dropdown"> Categories </a>
+						<ul class="dropdown-menu">
+							<li th:each="c:${categorys}"><a class="dropdown-item"
+								th:href="@{'/products?category='+${c.name}}"> [[${c.name}]]
+							</a></li>
+						</ul></li>
+				</ul>
+
+				<!-- Right -->
+				<ul class="navbar-nav ms-auto">
+
+					<th:block th:if="${user==null}">
+						<li class="nav-item"><a class="nav-link" href="/signin">Login</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/register">Register</a>
+						</li>
+					</th:block>
+
+					<th:block th:if="${user!=null}">
+
+						<!-- Cart -->
+						<li class="nav-item" th:if="${user.role=='ROLE_USER'}"><a
+							class="nav-link" href="/user/cart"> <i
+								class="fa-solid fa-cart-shopping"></i> <span class="cart-badge">[[${countCart}]]</span>
+						</a></li>
+
+						<!-- Profile -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							data-bs-toggle="dropdown"> <i class="fa-solid fa-user"></i>
+								[[${user.name}]]
+						</a>
+							<ul class="dropdown-menu dropdown-menu-end">
+								<li th:if="${user.role=='ROLE_USER'}"><a
+									class="dropdown-item" href="/user/profile">Profile</a></li>
+								<li th:if="${user.role=='ROLE_ADMIN'}"><a
+									class="dropdown-item" href="/admin/profile">Admin Profile</a></li>
+								<li th:if="${user.role=='ROLE_ADMIN'}"><a
+									class="dropdown-item" href="/admin/">Admin Dashboard</a></li>
+								<li th:if="${user.role=='ROLE_USER'}"><a
+									class="dropdown-item" href="/user/user-orders">Orders</a></li>
+								<li><a class="dropdown-item" href="/logout">Logout</a></li>
+							</ul></li>
+
+					</th:block>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Navbar -->
+
+	<div th:replace="${content}"></div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<!-- Brand -->
+				<div class="col-md-4">
+					<h5>Cartify</h5>
+					<p>Your premium shopping destination. Discover quality products
+						at the best price.</p>
+				</div>
+
+				<!-- Links -->
+				<div class="col-md-4">
+					<h5>Quick Links</h5>
+					<a href="/">Home</a> 
+					<a href="/products">Products</a> 
+					<a href="/aboutus">About Us</a>
+				</div>
+
+				<!-- Social -->
+				<div class="col-md-4">
+					<h5>Follow Us</h5>
+					<div class="social">
+						<i class="fa-brands fa-facebook"></i> <i
+							class="fa-brands fa-instagram"></i> <i
+							class="fa-brands fa-twitter"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<div class="footer-bottom">© 2026 Cartify | All Rights Reserved</div>
+
+	<!-- Jquery Validation Library  -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
+	<!-- End  -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+</body>
+</html>

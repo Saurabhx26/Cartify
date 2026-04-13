@@ -1,0 +1,466 @@
+@charset "ISO-8859-1";
+
+.card-sh {
+	box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cat-div {
+	box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.error {
+	color: red;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fb;
+}
+
+/* Navbar Style */
+.navbar-custom {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 0px 0px;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+}
+
+/* Nav links */
+.nav-link {
+    position: relative;
+    margin: 0 10px;
+    color: #fff !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #f8c146 !important;
+}
+
+/* Underline Animation */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #f8c146;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Cart Badge */
+.cart-badge {
+    background: #f8c146;
+    color: black;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.dropdown-item:hover {
+    background-color: #f8c146;
+    color: black;
+}
+
+/* footer */
+
+.footer {
+    background: #0a0a0a;
+    color: #ccc;
+    padding: 40px 0;
+}
+
+.footer h5 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #f8c146;
+}
+
+.footer .social i {
+    font-size: 18px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer .social i:hover {
+    color: #f8c146;
+}
+
+.footer-bottom {
+    background: #000;
+    text-align: center;
+    padding: 10px;
+    color: #777;
+}
+
+/* Index page */
+
+.hero-img {
+    height: 550px;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+}
+
+.hero-overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+}
+
+.category-card {
+    padding: 15px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.category-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+}
+
+.category-card:hover {
+    transform: scale(1.1);
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Background */
+.login-bg {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Image */
+.login-img {
+    max-height: 400px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Card */
+.login-card {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Input Group */
+.form-group {
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid #ccc;
+    color: #fff;
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+/* Floating Label Effect */
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #00d4ff;
+}
+
+/* Button */
+.btn-login {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* Links */
+a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Background */
+.register-bg {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Image */
+.register-img {
+    max-height: 450px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Card */
+.register-card {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* Input group */
+.form-group {
+    position: relative;
+    margin-top: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid #aaa;
+    color: #fff;
+}
+
+/* Label */
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+/* Floating effect */
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #00d4ff;
+}
+
+/* File input */
+.file-input {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+}
+
+/* Button */
+.btn-register {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-register:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+/* Links */
+a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Search Bar */
+.search-box {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.search-box input {
+    border-radius: 30px;
+    padding: 12px 20px;
+    border: none;
+}
+
+.search-box button {
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
+}
+
+/* Sidebar */
+.sidebar {
+    border-radius: 15px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.sidebar a {
+    border-radius: 10px !important;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #4f46e5;
+    color: #fff !important;
+}
+
+/* Product Card */
+.product-card {
+    border-radius: 20px;
+    transition: 0.3s;
+    border: none;
+    background: #fff;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    height: 180px;
+    object-fit: contain;
+}
+
+.price {
+    font-weight: 600;
+    color: #111827;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.discount {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+/* Button */
+.btn-modern {
+    border-radius: 30px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    border: none;
+}
+
+/* Pagination */
+.pagination .page-link {
+    border-radius: 10px !important;
+    margin: 3px;
+    color: #4f46e5;
+}
+
+.pagination .active .page-link {
+    background: #4f46e5;
+    border: none;
+    color: #fff;
+}
